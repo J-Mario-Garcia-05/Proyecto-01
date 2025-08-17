@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc4e3d71-640d-4a90-8318-70aa372356de" name="Changes" comment="clase buscador">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="cc4e3d71-640d-4a90-8318-70aa372356de" name="Changes" comment="agregando menu">
       <change beforePath="$PROJECT_DIR$/Gestion de Inventario.py" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion de Inventario.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -106,7 +105,15 @@
       <option name="project" value="LOCAL" />
       <updated>1755467881866</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="agregando menu">
+      <option name="closed" value="true" />
+      <created>1755470220790</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1755470220790</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -116,6 +123,7 @@
     <MESSAGE value="primera clase" />
     <MESSAGE value="fucnion de listar productos" />
     <MESSAGE value="clase buscador" />
-    <option name="LAST_COMMIT_MESSAGE" value="clase buscador" />
+    <MESSAGE value="agregando menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="agregando menu" />
   </component>
 </project>

@@ -76,3 +76,23 @@ def menu():
             inventario.agregar_producto(producto)
 
         elif opcion == "2":
+            print("\nOrdenar por: nombre, precio o stock")
+            clave = input("Ingrese la clave para ordenar: ")
+            if clave not in ["nombre", "precio", "stock"]:
+                clave = "nombre"
+            inventario.listar_productos(clave)
+
+        elif opcion == "3":
+            print("\nBuscar por: código, nombre, categoria")
+            clave = input("Ingrese la clave de búsqueda:")
+            valor = input("Ingrese el valor a buscar: ")
+            inventario.buscar_producto(clave, valor)
+
+        elif opcion == "4":
+            print("Saliendo del sistema...")
+            break
+        else:
+            print("Opcion inválida. Intentelo nuevamente. ")
+
+menu ()
+
