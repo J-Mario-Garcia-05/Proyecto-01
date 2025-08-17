@@ -23,6 +23,17 @@ class Ordenador:
         mayores = [x for x in lista [1:] if obtener_valor(x) > pivote]
         return Ordenador.quick_sort(menores, clave) + iguales + Ordenador.quick_sort(mayores, clave)
 
+class Buscador:
+    def buscar (lista,clave, valor):
+        resultados = []
+        for producto in lista:
+            if clave == "código" and producto.codigo == valor:
+                resultados.append(producto)
+            elif clave == "nombre" and valor in producto.nombre:
+                resultados.append(producto)
+            elif clave == "categoria" and valor in producto.categoria:
+                resultados.append(producto)
+        return resultados
     #la funcion listar productos iria adentro de la clase inventario ya que es allí donde se van a mostrar los productos
     def listar_productos(self, clave_orden = "nombre"):
         lista = list(self.productos.values())
