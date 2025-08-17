@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc4e3d71-640d-4a90-8318-70aa372356de" name="Changes" comment="fucnion de listar productos" />
+    <list default="true" id="cc4e3d71-640d-4a90-8318-70aa372356de" name="Changes" comment="clase buscador">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gestion de Inventario.py" beforeDir="false" afterPath="$PROJECT_DIR$/Gestion de Inventario.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -95,7 +98,15 @@
       <option name="project" value="LOCAL" />
       <updated>1755321354329</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="clase buscador">
+      <option name="closed" value="true" />
+      <created>1755467881866</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1755467881866</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -104,6 +115,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="primera clase" />
     <MESSAGE value="fucnion de listar productos" />
-    <option name="LAST_COMMIT_MESSAGE" value="fucnion de listar productos" />
+    <MESSAGE value="clase buscador" />
+    <option name="LAST_COMMIT_MESSAGE" value="clase buscador" />
   </component>
 </project>
