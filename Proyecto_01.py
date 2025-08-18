@@ -142,93 +142,95 @@ class Inventario:
 
 
 # MENU
-def menu():
-    inventario = Inventario()
+class Menu:
+    @staticmethod
+    def menu():
+        inventario = Inventario()
 
-    while True:
-        print("\n---MENÚ DE INVENTARIO---")
-        print("1. Agregar producto")
-        print("2. Listar productos")
-        print("3. Buscar producto")
-        print("4. Salir")
-        opcion = input("Seleccione una opción:")
+        while True:
+            print("\n---MENÚ DE INVENTARIO---")
+            print("1. Agregar producto")
+            print("2. Listar productos")
+            print("3. Buscar producto")
+            print("4. Salir")
+            opcion = input("Seleccione una opción: ")
 
-        if opcion == "1":
-            codigo = input("Código del producto: ")
-            nombre = input("Nombre del producto: ")
-            categoria = input("Categoria del producto: ")
-            try:
-                precio = float(input("Precio del producto: Q."))
-                stock = int(input("Stock del producto: "))
-                producto = Producto(codigo, nombre, categoria, precio, stock)
-                inventario.agregar_producto(producto)
-                print("Producto agregado correctamente")
-            except ValueError as e:
-                print(f"Ha ocurrido un error: {e}")
+            if opcion == "1":
+                codigo = input("Código del producto: ")
+                nombre = input("Nombre del producto: ")
+                categoria = input("Categoria del producto: ")
+                try:
+                    precio = float(input("Precio del producto: Q."))
+                    stock = int(input("Stock del producto: "))
+                    producto = Producto(codigo, nombre, categoria, precio, stock)
+                    inventario.agregar_producto(producto)
+                    print("Producto agregado correctamente")
+                except ValueError as e:
+                    print(f"Ha ocurrido un error: {e}")
 
-        elif opcion == "2":
-            clave = input("Ordenar por (nombre, precio, stock): ").lower()
-            if clave not in ["nombre", "precio", "stock"]:
-                print("Orden no valido, se ordenará por nombre")
-                clave = "nombre"
-            productos = inventario.listar_productos(clave)
-            if productos:
-                for p in productos:
-                    print(p)
+            elif opcion == "2":
+                clave = input("Ordenar por (nombre, precio, stock): ").lower()
+                if clave not in ["nombre", "precio", "stock"]:
+                    print("Orden no valido, se ordenará por nombre")
+                    clave = "nombre"
+                productos = inventario.listar_productos(clave)
+                if productos:
+                    for p in productos:
+                        print(p)
+                else:
+                    print("No hay productos en el inventario")
+
+            elif opcion == "3":
+                clave = input("Buscar por (codigo, nombre, categoria): ").lower()
+                valor = input(f"Ingrese el/la {clave} del producto: ")
+                resultados = inventario.buscar_producto(clave, valor)
+                if resultados:
+                    for p in resultados:
+                        print(p)
+
+                    print("\n1.Editar precio \t2.Editar Stock \n3.Eliminar producto \t4.Volver al menú principal")
+                    submenu = input("\nSeleccione una opción: ")
+                    if submenu == "1":
+                        codigo = input("\nIngrese el código del producto a editar precio: ")
+                        try:
+                            if not any(p.codigo == codigo for p in resultados):
+                                raise ValueError("Producto no encontrado")
+                            nuevo_precio = float(input("Nuevo precio: Q."))
+                            inventario.actualizar_precio(codigo, nuevo_precio)
+                            print("Producto actualizado correctamente")
+                        except ValueError as e:
+                            print("Ha ocurrido un error: ", e)
+                    elif submenu == "2":
+                        codigo = input("\nIngrese el código del producto a editar stock: ")
+                        try:
+                            if not any(p.codigo == codigo for p in resultados):
+                                raise ValueError("Producto no encontrado")
+                            nuevo_stock = int(input("Nuevo stock: "))
+                            inventario.actualizar_stock(codigo, nuevo_stock)
+                            print("Stock actualizado correctamente")
+                        except ValueError as e:
+                            print("Ha ocurrido un error: ", e)
+                    elif submenu == "3":
+                        codigo = input("\nIngrese el código del producto a eliminar: ")
+                        try:
+                            if not any(p.codigo == codigo for p in resultados):
+                                raise ValueError("Producto no encontrado")
+                            inventario.eliminar_producto(codigo)
+                            print("Producto eliminado correctamente")
+                        except ValueError as e:
+                            print("Ha ocurrido un error: ", e)
+                    elif submenu != "4":
+                        print("Opción no válida")
+                    print("Regresando al menú")
+                else:
+                    print("No se encontraron productos")
+
+            elif opcion == "4":
+                print("Saliendo del sistema...")
+                break
+
             else:
-                print("No hay productos en el inventario")
-
-        elif opcion == "3":
-            clave = input("Buscar por (codigo, nombre, categoria): ").lower()
-            valor = input(f"Ingrese el/la {clave} del producto: ")
-            resultados = inventario.buscar_producto(clave, valor)
-            if resultados:
-                for p in resultados:
-                    print(p)
-
-                print("\n1.Editar precio \t2.Editar Stock \n3.Eliminar producto \t4.Volver al menú principal")
-                submenu = input("\nSeleccione una opción: ")
-                if submenu == "1":
-                    codigo = input("\nIngrese el código del producto a editar precio: ")
-                    try:
-                        if not any(p.codigo == codigo for p in resultados):
-                            raise ValueError("Producto no encontrado")
-                        nuevo_precio = float(input("Nuevo precio: Q."))
-                        inventario.actualizar_precio(codigo, nuevo_precio)
-                        print("Producto actualizado correctamente")
-                    except ValueError as e:
-                        print("Ha ocurrido un error: ", e)
-                elif submenu == "2":
-                    codigo = input("\nIngrese el código del producto a editar stock: ")
-                    try:
-                        if not any(p.codigo == codigo for p in resultados):
-                            raise ValueError("Producto no encontrado")
-                        nuevo_stock = int(input("Nuevo stock: "))
-                        inventario.actualizar_stock(codigo, nuevo_stock)
-                        print("Stock actualizado correctamente")
-                    except ValueError as e:
-                        print("Ha ocurrido un error: ", e)
-                elif submenu == "3":
-                    codigo = input("\nIngrese el código del producto a eliminar: ")
-                    try:
-                        if not any(p.codigo == codigo for p in resultados):
-                            raise ValueError("Producto no encontrado")
-                        inventario.eliminar_producto(codigo)
-                        print("Producto eliminado correctamente")
-                    except ValueError as e:
-                        print("Ha ocurrido un error: ", e)
-                elif submenu != "4":
-                    print("Opción no válida")
-                print("Regresando al menú")
-            else:
-                print("No se encontraron productos")
-
-        elif opcion == "4":
-            print("Saliendo del sistema...")
-            break
-
-        else:
-            print("Opcion inválida. Intentelo nuevamente. ")
+                print("Opcion inválida. Intentelo nuevamente. ")
 
 
-menu()
+Menu.menu()
