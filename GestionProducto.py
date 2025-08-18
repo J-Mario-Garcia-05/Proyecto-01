@@ -1,6 +1,6 @@
 class Producto:
     def __init__(self, codigo, nombre, categoria, precio, stock):
-        self.codigo = codigo
+        self.__codigo = codigo
         self.__nombre = nombre
         self.__categoria = categoria
         self.__precio = precio
@@ -71,7 +71,7 @@ class Inventario:
         self.inventario[producto.codigo] = producto
 
     def listar_productos(self, clave="nombre"):
-        lista = list(self.productos.values())
+        lista = list(self.inventario.values())
         return Ordenador.quick_sort(lista, clave) if lista else []
 
     def actualizar_precio(self, codigo, nuevo_precio):
